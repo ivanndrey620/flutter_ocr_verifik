@@ -1,19 +1,21 @@
 name: flutter_ocr_verifik
-description: A new Flutter project.
-publish_to: 'none'
+description: Verifik demo.
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
+  sdk: ">=3.0.1 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_ocr_sdk: 1.1.4
+  image_picker_for_web: 3.0.2
 
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true
