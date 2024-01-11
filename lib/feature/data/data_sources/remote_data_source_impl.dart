@@ -29,8 +29,6 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         data: formData,
       );
 
-      print('response data ${response.data}');
-
       return OcrResultModel.fromJson(response.data);
     } catch (e) {
       throw ('Error is $e');

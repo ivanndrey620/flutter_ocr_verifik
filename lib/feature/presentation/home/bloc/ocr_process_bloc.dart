@@ -1,6 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'ocr_process_event.dart';
 part 'ocr_process_state.dart';

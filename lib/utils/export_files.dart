@@ -1,5 +1,7 @@
 export 'package:flutter/material.dart';
-export 'package:flutter_ocr_verifik/feature/presentation/screens/home_screen.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/home/screens/home_screen.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
+
 export 'package:flutter_ocr_verifik/utils/constant_values.dart';
 export 'package:flutter_ocr_verifik/app.dart';
 export 'package:get_it/get_it.dart';
@@ -8,7 +10,6 @@ export 'package:flutter_ocr_verifik/utils/injection.dart';
 export 'package:flutter_ocr_verifik/feature/data/endpoints.dart';
 export 'package:flutter_ocr_verifik/utils/export_files.dart';
 export 'package:flutter_ocr_verifik/utils/image_picker_util.dart';
-export 'package:flutter_tesseract_ocr/web.dart';
 export 'package:dio/dio.dart';
 export 'package:flutter_ocr_verifik/feature/data/dio_client.dart';
 export 'package:flutter_ocr_verifik/feature/data/data_sources/remote_data_source.dart';
@@ -20,3 +21,6 @@ export 'package:flutter_ocr_verifik/feature/domain/line_model.dart';
 export 'package:flutter_ocr_verifik/feature/domain/text_overlay_model.dart';
 export 'package:flutter_ocr_verifik/feature/domain/ocr_result_model.dart';
 export 'package:json_annotation/json_annotation.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/home/bloc/ocr_process_bloc.dart';
+export 'package:flutter_ocr_verifik/feature/data/repository/repository_impl.dart';
+export 'package:freezed_annotation/freezed_annotation.dart';

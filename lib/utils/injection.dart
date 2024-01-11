@@ -1,5 +1,3 @@
-import 'package:flutter_ocr_verifik/feature/data/repository/repository_impl.dart';
-import 'package:flutter_ocr_verifik/feature/presentation/bloc/ocr_process_bloc.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 final locator = GetIt.instance;
