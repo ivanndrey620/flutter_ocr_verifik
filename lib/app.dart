@@ -5,12 +5,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
       ),
       title: StringConstants.appTitle,
-      home: const HomeScreen(),
+      routerConfig: router,
     );
   }
 }

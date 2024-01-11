@@ -1,7 +1,7 @@
 export 'package:flutter/material.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/home/screens/home_screen.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
-
+export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_button.dart';
 export 'package:flutter_ocr_verifik/utils/constant_values.dart';
 export 'package:flutter_ocr_verifik/app.dart';
 export 'package:get_it/get_it.dart';
@@ -25,3 +25,11 @@ export 'package:flutter_ocr_verifik/feature/presentation/home/bloc/ocr_process_b
 export 'package:flutter_ocr_verifik/feature/data/repository/repository_impl.dart';
 export 'package:freezed_annotation/freezed_annotation.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/home/widgets/information_card_widget.dart';
+export 'package:flutter_ocr_verifik/navigation/navigation.dart';
+export 'package:go_router/go_router.dart';
+export 'package:flutter_dropzone/flutter_dropzone.dart';
+export 'package:flutter_ocr_verifik/feature/domain/dropped_file_model.dart';
+export 'package:dotted_border/dotted_border.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/id_scaning/widgets/dropzone_widget.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_dialog.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_title.dart';

@@ -19,6 +19,23 @@ class StringConstants {
 
   static const String getYourIdentity =
       'Get your identity authenticated within a minute.';
+
+  static const String start = 'Start';
+
+  static const String uploadYourId = 'Upload your ID Document';
+
+  static const String uploadFile = 'Upload file';
+
+  static const String startScanning = 'Start Scanning';
+
+  static const String dragAndDrop = 'Drag and drop the photo here';
+
+  static const String theIdDocument =
+      'The ID Document file must have a .png .jpeg .jpg extension';
+
+  static const String findTheFile = 'Find the file on your device';
+
+  static const String cancel = 'Cancel';
 }
 
 class AssetsConstants {

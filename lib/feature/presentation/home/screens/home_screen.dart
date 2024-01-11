@@ -1,4 +1,4 @@
-import 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_button.dart';
+import 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_title.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,15 +20,7 @@ class HomeScreen extends StatelessWidget {
                 child: Image.asset(AssetsConstants.logo),
               ),
               const SizedBox(height: 20),
-              const Text(
-                StringConstants.exploreTheFuture,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.indigo,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              const CustomTitle(title: StringConstants.exploreTheFuture),
               const SizedBox(height: 20),
               const Center(
                 child: Text(
@@ -74,8 +66,8 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               CustomButton(
-                content: 'Start',
-                onPressed: () => print('hola'),
+                content: StringConstants.start,
+                onPressed: () => context.go('/idScaning'),
               )
             ],
           ),
