@@ -24,3 +24,4 @@ export 'package:json_annotation/json_annotation.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/home/bloc/ocr_process_bloc.dart';
 export 'package:flutter_ocr_verifik/feature/data/repository/repository_impl.dart';
 export 'package:freezed_annotation/freezed_annotation.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/home/widgets/information_card_widget.dart';
