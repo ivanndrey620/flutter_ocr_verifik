@@ -1,12 +1,11 @@
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class ImagePickerUtil {
+  static late ImagePicker _picker;
+
   ImagePickerUtil() {
-    print('entro aquial constructor');
     _picker = ImagePicker();
   }
-
-  static late ImagePicker _picker;
 
   Future<XFile?> displayPickImage({
     double? maxWidth,
