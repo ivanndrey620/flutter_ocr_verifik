@@ -11,12 +11,8 @@ Future<void> injectDependencies() async {
   locator.registerSingleton<Repository>(
       RepositoryImpl(remoteDataSource: locator.get()));
 
-  locator.registerSingleton<ImagePickerUtil>(ImagePickerUtil());
-
-  locator.registerFactory<OcrProcessBloc>(() => OcrProcessBloc(
-        repository: locator.get(),
-        imagePickerUtil: locator.get(),
-      ));
+  locator.registerFactory<OcrProcessBloc>(
+      () => OcrProcessBloc(repository: locator.get()));
 
   locator.registerFactory(() => IdScanningBloc());
 }

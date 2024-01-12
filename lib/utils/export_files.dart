@@ -5,11 +5,9 @@ export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_button.d
 export 'package:flutter_ocr_verifik/utils/constant_values.dart';
 export 'package:flutter_ocr_verifik/app.dart';
 export 'package:get_it/get_it.dart';
-export 'package:image_picker/image_picker.dart';
 export 'package:flutter_ocr_verifik/utils/injection.dart';
 export 'package:flutter_ocr_verifik/feature/data/endpoints.dart';
 export 'package:flutter_ocr_verifik/utils/export_files.dart';
-export 'package:flutter_ocr_verifik/utils/image_picker_util.dart';
 export 'package:dio/dio.dart';
 export 'package:flutter_ocr_verifik/feature/data/dio_client.dart';
 export 'package:flutter_ocr_verifik/feature/data/data_sources/remote_data_source.dart';
