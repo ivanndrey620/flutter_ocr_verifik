@@ -8,11 +8,9 @@ part 'ocr_process_bloc.freezed.dart';
 
 class OcrProcessBloc extends Bloc<OcrProcessEvent, OcrProcessState> {
   final Repository repository;
-  final ImagePickerUtil imagePickerUtil;
 
   OcrProcessBloc({
     required this.repository,
-    required this.imagePickerUtil,
   }) : super(const OcrProcessState.initial()) {
     on<GetTextFromImageEvent>((event, emit) async {
       try {
