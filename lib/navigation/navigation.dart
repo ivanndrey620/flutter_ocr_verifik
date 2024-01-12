@@ -1,6 +1,4 @@
-import 'package:flutter_ocr_verifik/feature/presentation/id_scaning/screens/id_scaning_screen.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
-import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
   routes: <RouteBase>[

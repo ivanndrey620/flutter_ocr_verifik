@@ -6,21 +6,22 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   RemoteDataSourceImpl({required this.dio});
 
   @override
-  Future<OcrResultModel> getTextFromImage({required XFile xFile}) async {
+  Future<OcrResultModel> getTextFromImage(
+      {required DroppedFile droppedFile}) async {
     try {
-      final bytes = await xFile.readAsBytes();
+      final fileType = droppedFile.name.split('.').last;
 
       FormData formData = FormData.fromMap({
         'language': 'spa',
         'isOverlayRequired': false,
         'iscreatesearchablepdf': false,
         'issearchablepdfhidetextlayer': false,
-        'filetype': 'png',
+        'filetype': fileType,
         'OCREngine': 2,
         'scale': true,
         'file': MultipartFile.fromBytes(
-          bytes,
-          filename: xFile.name,
+          droppedFile.byteList,
+          filename: droppedFile.name,
         ),
       });
 

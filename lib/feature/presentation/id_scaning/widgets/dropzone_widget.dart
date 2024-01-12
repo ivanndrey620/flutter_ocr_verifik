@@ -30,8 +30,9 @@ class _DropzoneWidgetState extends State<DropzoneWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                const Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Icon(
                       Icons.file_upload_outlined,
@@ -48,7 +49,7 @@ class _DropzoneWidgetState extends State<DropzoneWidget> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 5),
+                        SizedBox(height: 10),
                         Text(
                           StringConstants.theIdDocument,
                           style: TextStyle(color: Colors.black),
@@ -57,6 +58,7 @@ class _DropzoneWidgetState extends State<DropzoneWidget> {
                     )
                   ],
                 ),
+                const SizedBox(height: 10),
                 CustomButton(
                   content: StringConstants.findTheFile,
                   onPressed: () async {
@@ -104,12 +106,14 @@ class _DropzoneWidgetState extends State<DropzoneWidget> {
     final mime = await controller.getFileMIME(event);
     final bytes = await controller.getFileSize(event);
     final url = await controller.createFileUrl(event);
+    final byteList = await controller.getFileData(event);
 
     final droppedFile = DroppedFile(
       url: url,
       name: name,
       mime: mime,
       bytes: bytes,
+      byteList: byteList,
     );
 
     widget.onDroppedFile(droppedFile);

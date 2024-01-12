@@ -6,7 +6,7 @@ class RepositoryImpl extends Repository {
   RepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<OcrResultModel> getTextFromImage({required XFile xFile}) {
-    return remoteDataSource.getTextFromImage(xFile: xFile);
+  Future<OcrResultModel> getTextFromImage({required DroppedFile droppedFile}) {
+    return remoteDataSource.getTextFromImage(droppedFile: droppedFile);
   }
 }

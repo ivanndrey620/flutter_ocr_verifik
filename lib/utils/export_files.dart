@@ -33,3 +33,7 @@ export 'package:dotted_border/dotted_border.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/id_scaning/widgets/dropzone_widget.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_dialog.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_title.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/id_scaning/screens/id_scaning_screen.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/id_scaning/bloc/id_scanning_bloc.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/widgets/scanning_tacking_widget.dart';
+export 'dart:typed_data';

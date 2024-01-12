@@ -36,6 +36,30 @@ class StringConstants {
   static const String findTheFile = 'Find the file on your device';
 
   static const String cancel = 'Cancel';
+
+  static const String documentScanned = 'Document Scanned';
+
+  static const String scanPrompt = 'Scan Prompt - Document extraction';
+
+  static const String documentType = 'Document type';
+
+  static const String documentNumber = 'Document number';
+
+  static const String firstName = 'First name';
+
+  static const String lastname = 'Last name';
+
+  static const String fullName = 'Full name';
+
+  static const String dateOfBirth = 'Date of birth';
+
+  static const String country = 'Country';
+
+  static const String nacionality = 'Nationality';
+
+  static const String gender = 'Gender';
+
+  static const String scanAgain = 'Scan again';
 }
 
 class AssetsConstants {

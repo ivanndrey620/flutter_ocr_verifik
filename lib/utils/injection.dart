@@ -17,4 +17,6 @@ Future<void> injectDependencies() async {
         repository: locator.get(),
         imagePickerUtil: locator.get(),
       ));
+
+  locator.registerFactory(() => IdScanningBloc());
 }

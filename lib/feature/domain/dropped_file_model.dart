@@ -1,14 +1,18 @@
+import 'package:flutter_ocr_verifik/utils/export_files.dart';
+
 class DroppedFile {
   final String url;
   final String name;
   final String mime;
   final int bytes;
+  final Uint8List byteList;
 
   DroppedFile({
     required this.url,
     required this.name,
     required this.mime,
     required this.bytes,
+    required this.byteList,
   });
 
   String get size {

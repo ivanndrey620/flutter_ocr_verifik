@@ -1,4 +1,3 @@
-import 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_title.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class HomeScreen extends StatelessWidget {
