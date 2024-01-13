@@ -24,6 +24,11 @@ class LivenessDetectionResultModel {
     return rounded;
   }
 
+  bool get resultIs {
+    if (result == 'fake') return false;
+    return true;
+  }
+
   factory LivenessDetectionResultModel.fromJson(Map<String, dynamic> json) =>
       _$LivenessDetectionResultModelFromJson(json);
 

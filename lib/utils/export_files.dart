@@ -40,8 +40,16 @@ export 'package:flutter_ocr_verifik/feature/domain/liveness_detection_result_mod
 export 'package:flutter_ocr_verifik/feature/data/repository/liveness_repository_impl.dart';
 export 'package:flutter_ocr_verifik/feature/data/repository/ocr_repository_impl.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/document_details/bloc/id_scanning_bloc.dart';
-export 'package:flutter_ocr_verifik/feature/presentation/liveness_check/bloc/liveness_check_bloc.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/document_details/widgets/dropzone_widget.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_row_widget.dart';
 export 'package:pie_chart/pie_chart.dart';
 export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_pie_chart_widget.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/kyc_process/bloc/app_bloc.dart';
+export 'package:flutter_ocr_verifik/feature/domain/scanned_text_model.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/widgets/scan_prompt_result.dart';
+export 'package:flutter_ocr_verifik/utils/ocr_parser.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/liveness_check/bloc/liveness_check_bloc.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/id_scanning/id_scanning_screen.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/kyc_process/kyc_process_state.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/results/results_screen.dart';
+export 'package:device_info_plus/device_info_plus.dart';

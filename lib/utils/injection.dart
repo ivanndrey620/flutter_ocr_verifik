@@ -3,6 +3,8 @@ import 'package:flutter_ocr_verifik/utils/export_files.dart';
 final locator = GetIt.instance;
 
 Future<void> injectDependencies() async {
+  locator.registerFactory<DeviceInfoPlugin>(() => DeviceInfoPlugin());
+
   locator.registerFactory<Dio>(() => DioClient.dioIstance, instanceName: 'ocr');
 
   locator.registerFactory<Dio>(() => DioClient.livenessDioInstance,
@@ -23,6 +25,8 @@ Future<void> injectDependencies() async {
       () => OcrProcessBloc(ocrRepository: locator.get()));
 
   locator.registerFactory(() => IdScanningBloc());
+
+  locator.registerFactory(() => AppBloc(deviceInfoPlugin: locator.get()));
 
   locator.registerFactory(
       () => LivenessCheckBloc(livenesRepository: locator.get()));

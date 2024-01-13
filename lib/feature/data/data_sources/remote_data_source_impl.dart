@@ -58,6 +58,13 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         data: formData,
       );
 
+      final status = response.data['status'];
+
+      if (status == 'failure') {
+        final errorMessage = response.data['message'];
+        throw (errorMessage);
+      }
+
       return LivenessDetectionResultModel.fromJson(response.data);
     } catch (e) {
       throw ('Error is $e');

@@ -1,7 +1,7 @@
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
-class DocumentExtractionWidget extends StatelessWidget {
-  const DocumentExtractionWidget({
+class CustomTitleAndContentWidget extends StatelessWidget {
+  const CustomTitleAndContentWidget({
     super.key,
     required this.title,
     required this.content,

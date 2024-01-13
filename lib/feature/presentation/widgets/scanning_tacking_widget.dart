@@ -1,7 +1,9 @@
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class ScanningTrackingWidget extends StatelessWidget {
-  const ScanningTrackingWidget({super.key});
+  const ScanningTrackingWidget({super.key, required this.kycEnum});
+
+  final KycEnum kycEnum;
 
   @override
   Widget build(BuildContext context) {
@@ -25,24 +27,36 @@ class ScanningTrackingWidget extends StatelessWidget {
               child: CustomStep(
                 content: 'ID Scanning',
                 id: id++,
+                color: kycEnum == KycEnum.idScanning
+                    ? Colors.indigo
+                    : Colors.indigo[100]!,
               ),
             ),
             Expanded(
               child: CustomStep(
                 content: 'Document Details',
                 id: id++,
+                color: kycEnum == KycEnum.documentDetails
+                    ? Colors.indigo
+                    : Colors.indigo[100]!,
               ),
             ),
             Expanded(
               child: CustomStep(
                 content: 'Liveness check',
                 id: id++,
+                color: kycEnum == KycEnum.livenessCheck
+                    ? Colors.indigo
+                    : Colors.indigo[100]!,
               ),
             ),
             Expanded(
               child: CustomStep(
                 content: 'Results',
                 id: id++,
+                color: kycEnum == KycEnum.results
+                    ? Colors.indigo
+                    : Colors.indigo[100]!,
               ),
             ),
           ],
@@ -57,10 +71,12 @@ class CustomStep extends StatelessWidget {
     super.key,
     required this.content,
     required this.id,
+    required this.color,
   });
 
   final String content;
   final int id;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +84,12 @@ class CustomStep extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 20,
-          backgroundColor: Colors.blue,
+          backgroundColor: color,
           child: Text(
             '$id',
             style: const TextStyle(
               fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
         ),

@@ -1,4 +1,3 @@
-import 'package:flutter_ocr_verifik/feature/domain/scanned_text_model.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class OcrPaser {
