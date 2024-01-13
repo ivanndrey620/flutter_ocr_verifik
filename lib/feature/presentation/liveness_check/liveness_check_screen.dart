@@ -1,6 +1,4 @@
-import 'package:flutter_ocr_verifik/feature/presentation/liveness_check/bloc/liveness_check_bloc.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
-import 'package:flutter_ocr_verifik/utils/overlay_util.dart';
 
 class LivenessCheckScreen extends StatefulWidget {
   const LivenessCheckScreen({super.key});
@@ -16,7 +14,7 @@ class _LivenessCheckScreenState extends State<LivenessCheckScreen> {
   @override
   void initState() {
     super.initState();
-// To display the current output from the Camera,
+    // To display the current output from the Camera,
     // create a CameraController.
     _controller = CameraController(
       // Get a specific camera from the list of available cameras.

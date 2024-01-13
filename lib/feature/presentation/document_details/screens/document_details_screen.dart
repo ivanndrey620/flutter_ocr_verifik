@@ -1,8 +1,7 @@
-import 'package:flutter_ocr_verifik/feature/presentation/widgets/document_extraction_widget.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
-class IdScaningScreen extends StatelessWidget {
-  const IdScaningScreen({super.key});
+class DocumentDetailsScreen extends StatelessWidget {
+  const DocumentDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

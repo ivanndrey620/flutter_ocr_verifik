@@ -1,6 +1,3 @@
-import 'package:flutter_ocr_verifik/feature/data/repository/liveness_repository_impl.dart';
-import 'package:flutter_ocr_verifik/feature/data/repository/ocr_repository_impl.dart';
-import 'package:flutter_ocr_verifik/feature/presentation/liveness_check/bloc/liveness_check_bloc.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 final locator = GetIt.instance;
