@@ -208,7 +208,7 @@ class _NoScannedId extends StatelessWidget {
                   const SizedBox(height: 30),
                   CustomButton(
                     content: StringConstants.startScanning,
-                    onPressed: () {},
+                    onPressed: () => context.go('/livenessCheck'),
                   ),
                 ],
               ),

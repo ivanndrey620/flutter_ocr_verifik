@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'ocr_process_bloc.dart';
+part of 'liveness_check_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,29 +15,34 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$OcrProcessState {
+mixin _$LivenessCheckState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)
+        loaded,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,16 +74,16 @@ mixin _$OcrProcessState {
 }
 
 /// @nodoc
-abstract class $OcrProcessStateCopyWith<$Res> {
-  factory $OcrProcessStateCopyWith(
-          OcrProcessState value, $Res Function(OcrProcessState) then) =
-      _$OcrProcessStateCopyWithImpl<$Res, OcrProcessState>;
+abstract class $LivenessCheckStateCopyWith<$Res> {
+  factory $LivenessCheckStateCopyWith(
+          LivenessCheckState value, $Res Function(LivenessCheckState) then) =
+      _$LivenessCheckStateCopyWithImpl<$Res, LivenessCheckState>;
 }
 
 /// @nodoc
-class _$OcrProcessStateCopyWithImpl<$Res, $Val extends OcrProcessState>
-    implements $OcrProcessStateCopyWith<$Res> {
-  _$OcrProcessStateCopyWithImpl(this._value, this._then);
+class _$LivenessCheckStateCopyWithImpl<$Res, $Val extends LivenessCheckState>
+    implements $LivenessCheckStateCopyWith<$Res> {
+  _$LivenessCheckStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +100,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$OcrProcessStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$LivenessCheckStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -109,7 +114,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'OcrProcessState.initial()';
+    return 'LivenessCheckState.initial()';
   }
 
   @override
@@ -126,8 +131,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)
+        loaded,
+    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -137,8 +144,10 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult? Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -148,8 +157,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,7 +206,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements OcrProcessState {
+abstract class _Initial implements LivenessCheckState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -209,7 +219,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$OcrProcessStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$LivenessCheckStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -223,7 +233,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'OcrProcessState.loading()';
+    return 'LivenessCheckState.loading()';
   }
 
   @override
@@ -240,8 +250,10 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)
+        loaded,
+    required TResult Function(String message) error,
   }) {
     return loading();
   }
@@ -251,8 +263,10 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult? Function(String message)? error,
   }) {
     return loading?.call();
   }
@@ -262,8 +276,9 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -310,7 +325,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements OcrProcessState {
+abstract class _Loading implements LivenessCheckState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -320,12 +335,12 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ScannedText scannedText});
+  $Res call({LivenessDetectionResultModel livenessDetectionResultModel});
 }
 
 /// @nodoc
 class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$OcrProcessStateCopyWithImpl<$Res, _$LoadedImpl>
+    extends _$LivenessCheckStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
       _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
@@ -334,13 +349,13 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? scannedText = null,
+    Object? livenessDetectionResultModel = null,
   }) {
     return _then(_$LoadedImpl(
-      scannedText: null == scannedText
-          ? _value.scannedText
-          : scannedText // ignore: cast_nullable_to_non_nullable
-              as ScannedText,
+      livenessDetectionResultModel: null == livenessDetectionResultModel
+          ? _value.livenessDetectionResultModel
+          : livenessDetectionResultModel // ignore: cast_nullable_to_non_nullable
+              as LivenessDetectionResultModel,
     ));
   }
 }
@@ -348,14 +363,14 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl({required this.scannedText});
+  const _$LoadedImpl({required this.livenessDetectionResultModel});
 
   @override
-  final ScannedText scannedText;
+  final LivenessDetectionResultModel livenessDetectionResultModel;
 
   @override
   String toString() {
-    return 'OcrProcessState.loaded(scannedText: $scannedText)';
+    return 'LivenessCheckState.loaded(livenessDetectionResultModel: $livenessDetectionResultModel)';
   }
 
   @override
@@ -363,12 +378,14 @@ class _$LoadedImpl implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            (identical(other.scannedText, scannedText) ||
-                other.scannedText == scannedText));
+            (identical(other.livenessDetectionResultModel,
+                    livenessDetectionResultModel) ||
+                other.livenessDetectionResultModel ==
+                    livenessDetectionResultModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, scannedText);
+  int get hashCode => Object.hash(runtimeType, livenessDetectionResultModel);
 
   @JsonKey(ignore: true)
   @override
@@ -381,10 +398,12 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)
+        loaded,
+    required TResult Function(String message) error,
   }) {
-    return loaded(scannedText);
+    return loaded(livenessDetectionResultModel);
   }
 
   @override
@@ -392,10 +411,12 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult? Function(String message)? error,
   }) {
-    return loaded?.call(scannedText);
+    return loaded?.call(livenessDetectionResultModel);
   }
 
   @override
@@ -403,12 +424,13 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(scannedText);
+      return loaded(livenessDetectionResultModel);
     }
     return orElse();
   }
@@ -451,11 +473,12 @@ class _$LoadedImpl implements _Loaded {
   }
 }
 
-abstract class _Loaded implements OcrProcessState {
-  const factory _Loaded({required final ScannedText scannedText}) =
-      _$LoadedImpl;
+abstract class _Loaded implements LivenessCheckState {
+  const factory _Loaded(
+      {required final LivenessDetectionResultModel
+          livenessDetectionResultModel}) = _$LoadedImpl;
 
-  ScannedText get scannedText;
+  LivenessDetectionResultModel get livenessDetectionResultModel;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -467,12 +490,12 @@ abstract class _$$ErrorImplCopyWith<$Res> {
           _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
       __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({String message});
 }
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$OcrProcessStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$LivenessCheckStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -481,12 +504,12 @@ class __$$ErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? message = null,
   }) {
     return _then(_$ErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -495,14 +518,14 @@ class __$$ErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ErrorImpl implements _Error {
-  const _$ErrorImpl({required this.error});
+  const _$ErrorImpl({required this.message});
 
   @override
-  final String error;
+  final String message;
 
   @override
   String toString() {
-    return 'OcrProcessState.error(error: $error)';
+    return 'LivenessCheckState.error(message: $message)';
   }
 
   @override
@@ -510,11 +533,11 @@ class _$ErrorImpl implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -527,10 +550,12 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)
+        loaded,
+    required TResult Function(String message) error,
   }) {
-    return error(this.error);
+    return error(message);
   }
 
   @override
@@ -538,10 +563,12 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(
+            LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult? Function(String message)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(message);
   }
 
   @override
@@ -549,12 +576,13 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(LivenessDetectionResultModel livenessDetectionResultModel)?
+        loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(message);
     }
     return orElse();
   }
@@ -597,10 +625,10 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements OcrProcessState {
-  const factory _Error({required final String error}) = _$ErrorImpl;
+abstract class _Error implements LivenessCheckState {
+  const factory _Error({required final String message}) = _$ErrorImpl;
 
-  String get error;
+  String get message;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;

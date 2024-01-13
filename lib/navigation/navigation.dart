@@ -1,3 +1,4 @@
+import 'package:flutter_ocr_verifik/feature/presentation/liveness_check/liveness_check_screen.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 final GoRouter router = GoRouter(
@@ -12,6 +13,12 @@ final GoRouter router = GoRouter(
           path: 'idScaning',
           builder: (BuildContext context, GoRouterState state) {
             return const IdScaningScreen();
+          },
+        ),
+        GoRoute(
+          path: 'livenessCheck',
+          builder: (BuildContext context, GoRouterState state) {
+            return const LivenessCheckScreen();
           },
         ),
       ],

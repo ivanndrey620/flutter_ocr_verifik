@@ -2,8 +2,12 @@ import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class RemoteDataSourceImpl extends RemoteDataSource {
   Dio dio;
+  Dio livenessDio;
 
-  RemoteDataSourceImpl({required this.dio});
+  RemoteDataSourceImpl({
+    required this.dio,
+    required this.livenessDio,
+  });
 
   @override
   Future<OcrResultModel> getTextFromImage(
@@ -31,6 +35,30 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       );
 
       return OcrResultModel.fromJson(response.data);
+    } catch (e) {
+      throw ('Error is $e');
+    }
+  }
+
+  @override
+  Future<LivenessDetectionResultModel> livenessDetection(
+      {required XFile xFile}) async {
+    try {
+      final bytes = await xFile.readAsBytes();
+
+      FormData formData = FormData.fromMap({
+        'photo': MultipartFile.fromBytes(
+          bytes,
+          filename: 'picture',
+        ),
+      });
+
+      final response = await livenessDio.post(
+        '/photo/liveness',
+        data: formData,
+      );
+
+      return LivenessDetectionResultModel.fromJson(response.data);
     } catch (e) {
       throw ('Error is $e');
     }

@@ -7,17 +7,17 @@ part 'ocr_process_state.dart';
 part 'ocr_process_bloc.freezed.dart';
 
 class OcrProcessBloc extends Bloc<OcrProcessEvent, OcrProcessState> {
-  final Repository repository;
+  final OcrRepository ocrRepository;
 
   OcrProcessBloc({
-    required this.repository,
+    required this.ocrRepository,
   }) : super(const OcrProcessState.initial()) {
     on<GetTextFromImageEvent>((event, emit) async {
       try {
         emit(const OcrProcessState.loading());
 
-        final OcrResultModel ocrResult =
-            await repository.getTextFromImage(droppedFile: event.droppedFile);
+        final OcrResultModel ocrResult = await ocrRepository.getTextFromImage(
+            droppedFile: event.droppedFile);
 
         final scannedText = OcrPaser.parseResult(ocrResult);
 
