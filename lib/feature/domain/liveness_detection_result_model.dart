@@ -12,6 +12,18 @@ class LivenessDetectionResultModel {
     required this.result,
   });
 
+  String get scoreFixed {
+    final fix = score * 100;
+
+    return '${fix.toStringAsFixed(2)} %';
+  }
+
+  double get roundedScore {
+    final rounded = score * 100;
+
+    return rounded;
+  }
+
   factory LivenessDetectionResultModel.fromJson(Map<String, dynamic> json) =>
       _$LivenessDetectionResultModelFromJson(json);
 
