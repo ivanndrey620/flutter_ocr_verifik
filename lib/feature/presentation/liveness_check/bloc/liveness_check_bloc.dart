@@ -16,8 +16,7 @@ class LivenessCheckBloc extends Bloc<LivenessCheckEvent, LivenessCheckState> {
         final livenessDetectionResult =
             await livenesRepository.livenessDetection(xFile: event.xFile);
 
-        emit(LivenessCheckState.loaded(
-            livenessDetectionResultModel: livenessDetectionResult));
+        emit(LivenessCheckState.loaded());
       } catch (e) {
         emit(LivenessCheckState.error(message: '$e'));
       }

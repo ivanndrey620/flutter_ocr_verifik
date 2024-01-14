@@ -6,7 +6,6 @@ part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, KycProcessState> {
   late DroppedFile droppedFile;
-  late ScannedText scannedText;
 
   final DeviceInfoPlugin deviceInfoPlugin;
 
@@ -20,8 +19,7 @@ class AppBloc extends Bloc<AppEvent, KycProcessState> {
       ));
     });
 
-    on<OnLoadScannedTextResultEvent>(
-        (event, emit) => scannedText = event.scannedText);
+    on<OnLoadScannedTextResultEvent>((event, emit) {});
 
     on<OnRestartEvent>((event, emit) {
       emit(state.copyWith(
@@ -45,7 +43,6 @@ class AppBloc extends Bloc<AppEvent, KycProcessState> {
         appState: AppState.results(
           droppedFile: droppedFile,
           xFile: event.xFile,
-          scannedText: scannedText,
           webBrowserInfo: webBrowserInfo,
         ),
       ));

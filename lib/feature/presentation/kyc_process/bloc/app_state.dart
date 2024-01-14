@@ -13,7 +13,6 @@ class AppState with _$AppState {
   const factory AppState.results({
     required DroppedFile droppedFile,
     required XFile xFile,
-    required ScannedText scannedText,
     required WebBrowserInfo webBrowserInfo,
   }) = _Results;
 }

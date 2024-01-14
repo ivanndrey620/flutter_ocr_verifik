@@ -5,13 +5,11 @@ class ResultsScreen extends StatelessWidget {
     super.key,
     required this.xFile,
     required this.droppedFile,
-    required this.scannedText,
     required this.webBrowserInfo,
   });
 
   final XFile xFile;
   final DroppedFile droppedFile;
-  final ScannedText scannedText;
   final WebBrowserInfo webBrowserInfo;
 
   @override
@@ -53,24 +51,23 @@ class ResultsScreen extends StatelessWidget {
                     initial: () => const SizedBox.shrink(),
                     loading: () =>
                         const Center(child: CircularProgressIndicator()),
-                    loaded: (livenessDetectionResult) => Column(
+                    loaded: () => Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GeneralInformationWidget(
                             webBrowserInfo: webBrowserInfo),
                         const SizedBox(height: 10),
-                        LivenessScoreChart(
-                          title: 'Liveness score',
-                          score: livenessDetectionResult.scoreFixed,
-                          roundedScore: livenessDetectionResult.roundedScore,
-                        ),
-                        LivenessAndMatchResultsWidget(
-                            livenessDetectionResult: livenessDetectionResult)
+                        // LivenessScoreChart(
+                        //   title: 'Liveness score',
+                        //   score: livenessDetectionResult.scoreFixed,
+                        //   roundedScore: livenessDetectionResult.roundedScore,
+                        // ),
+                        // LivenessAndMatchResultsWidget(
+                        //     livenessDetectionResult: livenessDetectionResult)
                       ],
                     ),
                     error: (error) => Text('Error is $error'),
                   ),
-                  ScanPromptResult(result: scannedText),
                   const SizedBox(height: 10),
                   Center(
                     child: CustomButton(

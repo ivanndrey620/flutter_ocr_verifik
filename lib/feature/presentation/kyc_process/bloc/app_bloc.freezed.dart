@@ -21,8 +21,8 @@ mixin _$AppState {
     required TResult Function() idScanning,
     required TResult Function(DroppedFile droppedFile) documentDetails,
     required TResult Function(DroppedFile droppedFile) livenessCheck,
-    required TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)
+    required TResult Function(
+            DroppedFile droppedFile, XFile xFile, WebBrowserInfo webBrowserInfo)
         results,
   }) =>
       throw _privateConstructorUsedError;
@@ -32,7 +32,7 @@ mixin _$AppState {
     TResult? Function(DroppedFile droppedFile)? documentDetails,
     TResult? Function(DroppedFile droppedFile)? livenessCheck,
     TResult? Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
   }) =>
       throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ mixin _$AppState {
     TResult Function(DroppedFile droppedFile)? documentDetails,
     TResult Function(DroppedFile droppedFile)? livenessCheck,
     TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
     required TResult orElse(),
   }) =>
@@ -132,8 +132,8 @@ class _$IdScanningImpl implements _IdScanning {
     required TResult Function() idScanning,
     required TResult Function(DroppedFile droppedFile) documentDetails,
     required TResult Function(DroppedFile droppedFile) livenessCheck,
-    required TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)
+    required TResult Function(
+            DroppedFile droppedFile, XFile xFile, WebBrowserInfo webBrowserInfo)
         results,
   }) {
     return idScanning();
@@ -146,7 +146,7 @@ class _$IdScanningImpl implements _IdScanning {
     TResult? Function(DroppedFile droppedFile)? documentDetails,
     TResult? Function(DroppedFile droppedFile)? livenessCheck,
     TResult? Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
   }) {
     return idScanning?.call();
@@ -159,7 +159,7 @@ class _$IdScanningImpl implements _IdScanning {
     TResult Function(DroppedFile droppedFile)? documentDetails,
     TResult Function(DroppedFile droppedFile)? livenessCheck,
     TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
     required TResult orElse(),
   }) {
@@ -280,8 +280,8 @@ class _$DocumentDetailsImpl implements _DocumentDetails {
     required TResult Function() idScanning,
     required TResult Function(DroppedFile droppedFile) documentDetails,
     required TResult Function(DroppedFile droppedFile) livenessCheck,
-    required TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)
+    required TResult Function(
+            DroppedFile droppedFile, XFile xFile, WebBrowserInfo webBrowserInfo)
         results,
   }) {
     return documentDetails(droppedFile);
@@ -294,7 +294,7 @@ class _$DocumentDetailsImpl implements _DocumentDetails {
     TResult? Function(DroppedFile droppedFile)? documentDetails,
     TResult? Function(DroppedFile droppedFile)? livenessCheck,
     TResult? Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
   }) {
     return documentDetails?.call(droppedFile);
@@ -307,7 +307,7 @@ class _$DocumentDetailsImpl implements _DocumentDetails {
     TResult Function(DroppedFile droppedFile)? documentDetails,
     TResult Function(DroppedFile droppedFile)? livenessCheck,
     TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
     required TResult orElse(),
   }) {
@@ -433,8 +433,8 @@ class _$LivenessCheckImpl implements _LivenessCheck {
     required TResult Function() idScanning,
     required TResult Function(DroppedFile droppedFile) documentDetails,
     required TResult Function(DroppedFile droppedFile) livenessCheck,
-    required TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)
+    required TResult Function(
+            DroppedFile droppedFile, XFile xFile, WebBrowserInfo webBrowserInfo)
         results,
   }) {
     return livenessCheck(droppedFile);
@@ -447,7 +447,7 @@ class _$LivenessCheckImpl implements _LivenessCheck {
     TResult? Function(DroppedFile droppedFile)? documentDetails,
     TResult? Function(DroppedFile droppedFile)? livenessCheck,
     TResult? Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
   }) {
     return livenessCheck?.call(droppedFile);
@@ -460,7 +460,7 @@ class _$LivenessCheckImpl implements _LivenessCheck {
     TResult Function(DroppedFile droppedFile)? documentDetails,
     TResult Function(DroppedFile droppedFile)? livenessCheck,
     TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
     required TResult orElse(),
   }) {
@@ -525,10 +525,7 @@ abstract class _$$ResultsImplCopyWith<$Res> {
       __$$ResultsImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {DroppedFile droppedFile,
-      XFile xFile,
-      ScannedText scannedText,
-      WebBrowserInfo webBrowserInfo});
+      {DroppedFile droppedFile, XFile xFile, WebBrowserInfo webBrowserInfo});
 }
 
 /// @nodoc
@@ -544,7 +541,6 @@ class __$$ResultsImplCopyWithImpl<$Res>
   $Res call({
     Object? droppedFile = null,
     Object? xFile = null,
-    Object? scannedText = null,
     Object? webBrowserInfo = null,
   }) {
     return _then(_$ResultsImpl(
@@ -556,10 +552,6 @@ class __$$ResultsImplCopyWithImpl<$Res>
           ? _value.xFile
           : xFile // ignore: cast_nullable_to_non_nullable
               as XFile,
-      scannedText: null == scannedText
-          ? _value.scannedText
-          : scannedText // ignore: cast_nullable_to_non_nullable
-              as ScannedText,
       webBrowserInfo: null == webBrowserInfo
           ? _value.webBrowserInfo
           : webBrowserInfo // ignore: cast_nullable_to_non_nullable
@@ -574,7 +566,6 @@ class _$ResultsImpl implements _Results {
   const _$ResultsImpl(
       {required this.droppedFile,
       required this.xFile,
-      required this.scannedText,
       required this.webBrowserInfo});
 
   @override
@@ -582,13 +573,11 @@ class _$ResultsImpl implements _Results {
   @override
   final XFile xFile;
   @override
-  final ScannedText scannedText;
-  @override
   final WebBrowserInfo webBrowserInfo;
 
   @override
   String toString() {
-    return 'AppState.results(droppedFile: $droppedFile, xFile: $xFile, scannedText: $scannedText, webBrowserInfo: $webBrowserInfo)';
+    return 'AppState.results(droppedFile: $droppedFile, xFile: $xFile, webBrowserInfo: $webBrowserInfo)';
   }
 
   @override
@@ -599,15 +588,13 @@ class _$ResultsImpl implements _Results {
             (identical(other.droppedFile, droppedFile) ||
                 other.droppedFile == droppedFile) &&
             (identical(other.xFile, xFile) || other.xFile == xFile) &&
-            (identical(other.scannedText, scannedText) ||
-                other.scannedText == scannedText) &&
             (identical(other.webBrowserInfo, webBrowserInfo) ||
                 other.webBrowserInfo == webBrowserInfo));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, droppedFile, xFile, scannedText, webBrowserInfo);
+      Object.hash(runtimeType, droppedFile, xFile, webBrowserInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -621,11 +608,11 @@ class _$ResultsImpl implements _Results {
     required TResult Function() idScanning,
     required TResult Function(DroppedFile droppedFile) documentDetails,
     required TResult Function(DroppedFile droppedFile) livenessCheck,
-    required TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)
+    required TResult Function(
+            DroppedFile droppedFile, XFile xFile, WebBrowserInfo webBrowserInfo)
         results,
   }) {
-    return results(droppedFile, xFile, scannedText, webBrowserInfo);
+    return results(droppedFile, xFile, webBrowserInfo);
   }
 
   @override
@@ -635,10 +622,10 @@ class _$ResultsImpl implements _Results {
     TResult? Function(DroppedFile droppedFile)? documentDetails,
     TResult? Function(DroppedFile droppedFile)? livenessCheck,
     TResult? Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
   }) {
-    return results?.call(droppedFile, xFile, scannedText, webBrowserInfo);
+    return results?.call(droppedFile, xFile, webBrowserInfo);
   }
 
   @override
@@ -648,12 +635,12 @@ class _$ResultsImpl implements _Results {
     TResult Function(DroppedFile droppedFile)? documentDetails,
     TResult Function(DroppedFile droppedFile)? livenessCheck,
     TResult Function(DroppedFile droppedFile, XFile xFile,
-            ScannedText scannedText, WebBrowserInfo webBrowserInfo)?
+            WebBrowserInfo webBrowserInfo)?
         results,
     required TResult orElse(),
   }) {
     if (results != null) {
-      return results(droppedFile, xFile, scannedText, webBrowserInfo);
+      return results(droppedFile, xFile, webBrowserInfo);
     }
     return orElse();
   }
@@ -700,12 +687,10 @@ abstract class _Results implements AppState {
   const factory _Results(
       {required final DroppedFile droppedFile,
       required final XFile xFile,
-      required final ScannedText scannedText,
       required final WebBrowserInfo webBrowserInfo}) = _$ResultsImpl;
 
   DroppedFile get droppedFile;
   XFile get xFile;
-  ScannedText get scannedText;
   WebBrowserInfo get webBrowserInfo;
   @JsonKey(ignore: true)
   _$$ResultsImplCopyWith<_$ResultsImpl> get copyWith =>

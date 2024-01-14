@@ -6,8 +6,7 @@ class LivenesRepositoryImpl extends LivenesRepository {
   LivenesRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<LivenessDetectionResultModel> livenessDetection(
-      {required XFile xFile}) {
+  Future<void> livenessDetection({required XFile xFile}) {
     return remoteDataSource.livenessDetection(xFile: xFile);
   }
 }

@@ -27,31 +27,23 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   }
 
   @override
-  Future<LivenessDetectionResultModel> livenessDetection(
-      {required XFile xFile}) async {
+  Future<void> livenessDetection({required XFile xFile}) async {
     try {
-      final bytes = await xFile.readAsBytes();
+      final byteList = await xFile.readAsBytes();
 
-      FormData formData = FormData.fromMap({
-        'photo': MultipartFile.fromBytes(
-          bytes,
-          filename: 'picture',
-        ),
-      });
+      String base64Image = base64Encode(byteList);
 
       final response = await dio.post(
-        '/photo/liveness',
-        data: formData,
+        '/ocr/scan-demo',
+        data: {
+          'image': base64Image,
+          'os': 'DESKTOP',
+        },
       );
 
-      final status = response.data['status'];
+      final data = response.data['data'];
 
-      if (status == 'failure') {
-        final errorMessage = response.data['message'];
-        throw (errorMessage);
-      }
-
-      return LivenessDetectionResultModel.fromJson(response.data);
+      print('data is $data');
     } catch (e) {
       throw ('Error is $e');
     }
