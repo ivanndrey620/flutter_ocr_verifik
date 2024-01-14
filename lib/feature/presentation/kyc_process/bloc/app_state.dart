@@ -14,5 +14,6 @@ class AppState with _$AppState {
     required DroppedFile droppedFile,
     required XFile xFile,
     required WebBrowserInfo webBrowserInfo,
+    required OcrScanningModel ocrScanningModel,
   }) = _Results;
 }

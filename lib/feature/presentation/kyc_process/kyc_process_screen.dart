@@ -33,11 +33,13 @@ class KycProcessScreen extends StatelessWidget {
                             droppedFile,
                             xFile,
                             webBrowserInfo,
+                            ocrScanningResult,
                           ) =>
                               ResultsScreen(
                             xFile: xFile,
                             droppedFile: droppedFile,
                             webBrowserInfo: webBrowserInfo,
+                            ocrScanningResult: ocrScanningResult,
                           ),
                         ),
                       ),

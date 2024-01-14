@@ -25,5 +25,7 @@ class OnShowResultsEvent extends AppEvent {
 class OnRestartEvent extends AppEvent {}
 
 class OnLoadScannedTextResultEvent extends AppEvent {
-  OnLoadScannedTextResultEvent();
+  final OcrScanningModel ocrScanningModel;
+
+  OnLoadScannedTextResultEvent({required this.ocrScanningModel});
 }

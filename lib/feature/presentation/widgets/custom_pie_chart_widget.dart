@@ -15,6 +15,7 @@ class LivenessScoreChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
@@ -45,7 +46,6 @@ class LivenessScoreChart extends StatelessWidget {
             ),
             legendOptions: const LegendOptions(showLegends: false),
             chartType: ChartType.ring,
-            animationDuration: const Duration(milliseconds: 500),
             dataMap: {'1': roundedScore},
           ),
         ),

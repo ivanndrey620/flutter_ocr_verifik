@@ -21,31 +21,64 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       final data = response.data['data'];
 
       return OcrScanningModel.fromJson(data);
-    } catch (e) {
+    } on DioException catch (e) {
       throw ('Error is $e');
     }
   }
 
   @override
-  Future<void> livenessDetection({required XFile xFile}) async {
+  Future<FaceRecognitionLivenessModel> livenessDetection(
+      {required XFile xFile}) async {
     try {
       final byteList = await xFile.readAsBytes();
 
       String base64Image = base64Encode(byteList);
 
       final response = await dio.post(
-        '/ocr/scan-demo',
+        '/face-recognition/liveness/demo',
         data: {
-          'image': base64Image,
           'os': 'DESKTOP',
+          'image': base64Image,
         },
       );
 
-      final data = response.data['data'];
+      print('response data is ${response.data}');
 
-      print('data is $data');
-    } catch (e) {
-      throw ('Error is $e');
+      final result = response.data['data']['result'];
+
+      return FaceRecognitionLivenessModel.fromJson(result);
+    } on DioException catch (e) {
+      throw ('Error with face recognition - $e');
+    }
+  }
+
+  @override
+  Future<CompareFacesResult> compareFaces({
+    required XFile xFile,
+    required DroppedFile droppedFile,
+  }) async {
+    try {
+      final byteList = await xFile.readAsBytes();
+
+      String galleryImage = base64Encode(byteList);
+      String probeImage = base64Encode(droppedFile.byteList);
+
+      final map = {
+        'search_mode': 'FAST',
+        'gallery': ['"$galleryImage"'],
+        'probe': ['"$probeImage"'],
+      };
+
+      final response = await dio.post(
+        '/face-recognition/compare/demo',
+        data: map,
+      );
+
+      final data = response.data['data']['result'];
+
+      return CompareFacesResult.fromJson(data);
+    } on DioException catch (e) {
+      throw ('Error compare faces - ${e.message}');
     }
   }
 }

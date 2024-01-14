@@ -6,6 +6,7 @@ part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, KycProcessState> {
   late DroppedFile droppedFile;
+  late OcrScanningModel ocrScanningModel;
 
   final DeviceInfoPlugin deviceInfoPlugin;
 
@@ -19,7 +20,8 @@ class AppBloc extends Bloc<AppEvent, KycProcessState> {
       ));
     });
 
-    on<OnLoadScannedTextResultEvent>((event, emit) {});
+    on<OnLoadScannedTextResultEvent>(
+        (event, emit) => ocrScanningModel = event.ocrScanningModel);
 
     on<OnRestartEvent>((event, emit) {
       emit(state.copyWith(
@@ -44,6 +46,7 @@ class AppBloc extends Bloc<AppEvent, KycProcessState> {
           droppedFile: droppedFile,
           xFile: event.xFile,
           webBrowserInfo: webBrowserInfo,
+          ocrScanningModel: ocrScanningModel,
         ),
       ));
     });

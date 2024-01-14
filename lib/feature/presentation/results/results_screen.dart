@@ -6,17 +6,22 @@ class ResultsScreen extends StatelessWidget {
     required this.xFile,
     required this.droppedFile,
     required this.webBrowserInfo,
+    required this.ocrScanningResult,
   });
 
   final XFile xFile;
   final DroppedFile droppedFile;
   final WebBrowserInfo webBrowserInfo;
+  final OcrScanningModel ocrScanningResult;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => locator.get<LivenessCheckBloc>()
-        ..add(OnLivenessCheckEvent(xFile: xFile)),
+        ..add(OnLivenessCheckEvent(
+          xFile: xFile,
+          droppedFile: droppedFile,
+        )),
       child: CustomRowWidget(
         rowOne: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
@@ -51,19 +56,47 @@ class ResultsScreen extends StatelessWidget {
                     initial: () => const SizedBox.shrink(),
                     loading: () =>
                         const Center(child: CircularProgressIndicator()),
-                    loaded: () => Column(
+                    loaded: (
+                      faceRecognitionResult,
+                      compareFacesResult,
+                    ) =>
+                        Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GeneralInformationWidget(
                             webBrowserInfo: webBrowserInfo),
                         const SizedBox(height: 10),
-                        // LivenessScoreChart(
-                        //   title: 'Liveness score',
-                        //   score: livenessDetectionResult.scoreFixed,
-                        //   roundedScore: livenessDetectionResult.roundedScore,
-                        // ),
-                        // LivenessAndMatchResultsWidget(
-                        //     livenessDetectionResult: livenessDetectionResult)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            LivenessScoreChart(
+                              title: 'Liveness score',
+                              score: faceRecognitionResult
+                                  .livenessScoreWithPercentage,
+                              roundedScore: faceRecognitionResult.roundedScore,
+                            ),
+                            LivenessScoreChart(
+                              title: 'Match Score',
+                              score: compareFacesResult.scoreWithPercentage,
+                              roundedScore: compareFacesResult.roundedScore,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        LivenessAndMatchResultsWidget(
+                          faceRecognitionLivenessModel: faceRecognitionResult,
+                          compareFacesResult: compareFacesResult,
+                        ),
+                        CustomOcrPrompt(
+                          ocrPrompt: ocrScanningResult.ocrPrompt,
+                          ocrDocumentType: ocrScanningResult.documentType,
+                        ),
+                        const SizedBox(height: 20),
+                        CustomOcrPro(
+                          ocrPro: ocrScanningResult.ocrPro,
+                          ocrDocumentType: ocrScanningResult.documentType,
+                        ),
+                        const SizedBox(height: 20),
                       ],
                     ),
                     error: (error) => Text('Error is $error'),

@@ -5,18 +5,26 @@ part 'liveness_check_state.dart';
 part 'liveness_check_bloc.freezed.dart';
 
 class LivenessCheckBloc extends Bloc<LivenessCheckEvent, LivenessCheckState> {
-  final LivenesRepository livenesRepository;
+  final Repository repository;
 
-  LivenessCheckBloc({required this.livenesRepository})
+  LivenessCheckBloc({required this.repository})
       : super(const LivenessCheckState.initial()) {
     on<OnLivenessCheckEvent>((event, emit) async {
       try {
         emit(const LivenessCheckState.loading());
 
-        final livenessDetectionResult =
-            await livenesRepository.livenessDetection(xFile: event.xFile);
+        final faceRecognitionLiveness =
+            await repository.livenessDetection(xFile: event.xFile);
 
-        emit(LivenessCheckState.loaded());
+        final compareFaces = await repository.compareFaces(
+          xFile: event.xFile,
+          droppedFile: event.droppedFile,
+        );
+
+        emit(LivenessCheckState.loaded(
+          faceRecognitionLiveness: faceRecognitionLiveness,
+          compareFacesResult: compareFaces,
+        ));
       } catch (e) {
         emit(LivenessCheckState.error(message: '$e'));
       }

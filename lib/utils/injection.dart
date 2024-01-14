@@ -11,23 +11,19 @@ Future<void> injectDependencies() async {
     dio: locator.get(),
   ));
 
-  locator.registerSingleton<OcrRepository>(
-      OcrRepositoryImpl(remoteDataSource: locator.get()));
-
-  locator.registerSingleton<LivenesRepository>(
-      LivenesRepositoryImpl(remoteDataSource: locator.get()));
+  locator.registerSingleton<Repository>(
+      RepositoryImpl(remoteDataSource: locator.get()));
 
   locator.registerFactory<OcrProcessBloc>(() => OcrProcessBloc(
-        ocrRepository: locator.get(),
+        repository: locator.get(),
         deviceInfoPlugin: locator.get(),
       ));
 
-  locator.registerFactory(() => IdScanningBloc());
-
   locator.registerFactory(() => AppBloc(deviceInfoPlugin: locator.get()));
 
-  locator.registerFactory(
-      () => LivenessCheckBloc(livenesRepository: locator.get()));
+  locator.registerFactory(() => IdScanningBloc());
+
+  locator.registerFactory(() => LivenessCheckBloc(repository: locator.get()));
 
   locator.registerSingletonAsync<CameraDescription>(() async {
     // Obtain a list of the available cameras on the device.

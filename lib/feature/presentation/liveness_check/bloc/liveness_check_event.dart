@@ -4,6 +4,10 @@ abstract class LivenessCheckEvent {}
 
 class OnLivenessCheckEvent extends LivenessCheckEvent {
   final XFile xFile;
+  final DroppedFile droppedFile;
 
-  OnLivenessCheckEvent({required this.xFile});
+  OnLivenessCheckEvent({
+    required this.xFile,
+    required this.droppedFile,
+  });
 }

@@ -20,7 +20,10 @@ mixin _$LivenessCheckState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(
+            FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)
+        loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +31,9 @@ mixin _$LivenessCheckState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +41,9 @@ mixin _$LivenessCheckState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +133,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(
+            FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -137,7 +147,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -148,7 +160,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +254,10 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(
+            FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -251,7 +268,9 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -262,7 +281,9 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -319,6 +340,10 @@ abstract class _$$LoadedImplCopyWith<$Res> {
   factory _$$LoadedImplCopyWith(
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {FaceRecognitionLivenessModel faceRecognitionLiveness,
+      CompareFacesResult compareFacesResult});
 }
 
 /// @nodoc
@@ -328,36 +353,77 @@ class __$$LoadedImplCopyWithImpl<$Res>
   __$$LoadedImplCopyWithImpl(
       _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? faceRecognitionLiveness = null,
+    Object? compareFacesResult = null,
+  }) {
+    return _then(_$LoadedImpl(
+      faceRecognitionLiveness: null == faceRecognitionLiveness
+          ? _value.faceRecognitionLiveness
+          : faceRecognitionLiveness // ignore: cast_nullable_to_non_nullable
+              as FaceRecognitionLivenessModel,
+      compareFacesResult: null == compareFacesResult
+          ? _value.compareFacesResult
+          : compareFacesResult // ignore: cast_nullable_to_non_nullable
+              as CompareFacesResult,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl();
+  const _$LoadedImpl(
+      {required this.faceRecognitionLiveness,
+      required this.compareFacesResult});
+
+  @override
+  final FaceRecognitionLivenessModel faceRecognitionLiveness;
+  @override
+  final CompareFacesResult compareFacesResult;
 
   @override
   String toString() {
-    return 'LivenessCheckState.loaded()';
+    return 'LivenessCheckState.loaded(faceRecognitionLiveness: $faceRecognitionLiveness, compareFacesResult: $compareFacesResult)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedImpl &&
+            (identical(
+                    other.faceRecognitionLiveness, faceRecognitionLiveness) ||
+                other.faceRecognitionLiveness == faceRecognitionLiveness) &&
+            (identical(other.compareFacesResult, compareFacesResult) ||
+                other.compareFacesResult == compareFacesResult));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, faceRecognitionLiveness, compareFacesResult);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(
+            FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)
+        loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded();
+    return loaded(faceRecognitionLiveness, compareFacesResult);
   }
 
   @override
@@ -365,10 +431,12 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call();
+    return loaded?.call(faceRecognitionLiveness, compareFacesResult);
   }
 
   @override
@@ -376,12 +444,14 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded();
+      return loaded(faceRecognitionLiveness, compareFacesResult);
     }
     return orElse();
   }
@@ -425,7 +495,15 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements LivenessCheckState {
-  const factory _Loaded() = _$LoadedImpl;
+  const factory _Loaded(
+      {required final FaceRecognitionLivenessModel faceRecognitionLiveness,
+      required final CompareFacesResult compareFacesResult}) = _$LoadedImpl;
+
+  FaceRecognitionLivenessModel get faceRecognitionLiveness;
+  CompareFacesResult get compareFacesResult;
+  @JsonKey(ignore: true)
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -494,7 +572,10 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function(
+            FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -505,7 +586,9 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? loaded,
+    TResult? Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -516,7 +599,9 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function(FaceRecognitionLivenessModel faceRecognitionLiveness,
+            CompareFacesResult compareFacesResult)?
+        loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

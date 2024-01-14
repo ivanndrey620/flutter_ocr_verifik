@@ -13,120 +13,60 @@ class DocumentDetailsScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => locator.get<OcrProcessBloc>()
         ..add(GetTextFromImageEvent(droppedFile: droppedFile)),
-      child: BlocBuilder<OcrProcessBloc, OcrProcessState>(
-        builder: (context, state) {
-          return CustomRowWidget(
-            rowOne: DocumentScanned(url: droppedFile.url),
-            rowTwo: state.when(
-              initial: () => const SizedBox.shrink(),
-              loading: () => const Center(
-                child: CircularProgressIndicator(),
-              ),
-              loaded: (
-                result,
-                webBrowserInfo,
-              ) {
-                final ocrPromptList = result.ocrPrompt;
-                final ocrProList = result.ocrPro;
-
-                ocrProList?.ocrExtraction
-                    .removeWhere((key, value) => key == 'details');
-
-                return SingleChildScrollView(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GeneralInformationWidget(webBrowserInfo: webBrowserInfo),
-                      const CustomTitle(
-                          title: 'Scan Prompt - Document extraction'),
-                      ocrPromptList == null
-                          ? const SizedBox.shrink()
-                          : ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: ocrPromptList.ocrExtraction.length,
-                              itemBuilder: (context, index) {
-                                final key = ocrPromptList.ocrExtraction.keys
-                                    .elementAt(index);
-
-                                final content = ocrPromptList
-                                    .ocrExtraction.values
-                                    .toList()[index];
-
-                                return Column(
-                                  children: <Widget>[
-                                    ListTile(
-                                      contentPadding: EdgeInsets.zero,
-                                      title: Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 15.0),
-                                        child: Text(
-                                          key.sentenceCase,
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      subtitle: Text('$content'),
-                                    ),
-                                    const Divider(
-                                      height: 2.0,
-                                    ),
-                                  ],
-                                );
-                              },
-                            ),
-                      const SizedBox(height: 20),
-                      const CustomTitle(
-                          title: 'Scan Zero - Document extraction'),
-                      ocrProList == null
-                          ? const SizedBox.shrink()
-                          : ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: ocrProList.ocrExtraction.length,
-                              itemBuilder: (context, index) {
-                                final key = ocrProList.ocrExtraction.keys
-                                    .elementAt(index);
-
-                                final content = ocrProList.ocrExtraction.values
-                                    .toList()[index];
-
-                                return Column(
-                                  children: <Widget>[
-                                    ListTile(
-                                      contentPadding: EdgeInsets.zero,
-                                      title: Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 15.0),
-                                        child: Text(
-                                          key.sentenceCase,
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      subtitle: Text('$content'),
-                                    ),
-                                    const Divider(
-                                      height: 2.0,
-                                    ),
-                                  ],
-                                );
-                              },
-                            ),
-                      const SizedBox(height: 20),
-                      const _Buttons(),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
-                );
-              },
-              error: (error) => Text('Error $error'),
-            ),
+      child: BlocListener<OcrProcessBloc, OcrProcessState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            loaded: (ocrScanningModel, webBrowserInfo) => context
+                .read<AppBloc>()
+                .add(OnLoadScannedTextResultEvent(
+                    ocrScanningModel: ocrScanningModel)),
           );
         },
+        child: BlocBuilder<OcrProcessBloc, OcrProcessState>(
+          builder: (context, state) {
+            return CustomRowWidget(
+              rowOne: DocumentScanned(url: droppedFile.url),
+              rowTwo: state.when(
+                initial: () => const SizedBox.shrink(),
+                loading: () => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+                loaded: (
+                  result,
+                  webBrowserInfo,
+                ) {
+                  final ocrPrompt = result.ocrPrompt;
+                  final ocrPro = result.ocrPro;
+                  final ocrDocumentType = result.documentType;
+
+                  return SingleChildScrollView(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GeneralInformationWidget(
+                            webBrowserInfo: webBrowserInfo),
+                        CustomOcrPrompt(
+                          ocrPrompt: ocrPrompt,
+                          ocrDocumentType: ocrDocumentType,
+                        ),
+                        const SizedBox(height: 20),
+                        CustomOcrPro(
+                          ocrPro: ocrPro,
+                          ocrDocumentType: ocrDocumentType,
+                        ),
+                        const SizedBox(height: 20),
+                        const _Buttons(),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
+                  );
+                },
+                error: (error) => Text('Error $error'),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
