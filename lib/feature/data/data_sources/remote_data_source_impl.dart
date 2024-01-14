@@ -2,39 +2,25 @@ import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class RemoteDataSourceImpl extends RemoteDataSource {
   Dio dio;
-  Dio livenessDio;
 
   RemoteDataSourceImpl({
     required this.dio,
-    required this.livenessDio,
   });
 
   @override
-  Future<OcrResultModel> getTextFromImage(
+  Future<OcrScanningModel> getTextFromImage(
       {required DroppedFile droppedFile}) async {
     try {
-      final fileType = droppedFile.name.split('.').last;
-
-      FormData formData = FormData.fromMap({
-        'language': 'spa',
-        'isOverlayRequired': false,
-        'iscreatesearchablepdf': false,
-        'issearchablepdfhidetextlayer': false,
-        'filetype': fileType,
-        'OCREngine': 2,
-        'scale': true,
-        'file': MultipartFile.fromBytes(
-          droppedFile.byteList,
-          filename: droppedFile.name,
-        ),
-      });
+      String base64Image = base64Encode(droppedFile.byteList);
 
       final response = await dio.post(
-        '/parse/image',
-        data: formData,
+        '/ocr/scan-demo',
+        data: {'image': base64Image},
       );
 
-      return OcrResultModel.fromJson(response.data);
+      final data = response.data['data'];
+
+      return OcrScanningModel.fromJson(data);
     } catch (e) {
       throw ('Error is $e');
     }
@@ -53,7 +39,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         ),
       });
 
-      final response = await livenessDio.post(
+      final response = await dio.post(
         '/photo/liveness',
         data: formData,
       );

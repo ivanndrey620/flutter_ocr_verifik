@@ -5,14 +5,10 @@ final locator = GetIt.instance;
 Future<void> injectDependencies() async {
   locator.registerFactory<DeviceInfoPlugin>(() => DeviceInfoPlugin());
 
-  locator.registerFactory<Dio>(() => DioClient.dioIstance, instanceName: 'ocr');
-
-  locator.registerFactory<Dio>(() => DioClient.livenessDioInstance,
-      instanceName: 'livenesss');
+  locator.registerFactory<Dio>(() => DioClient.dioIstance);
 
   locator.registerSingleton<RemoteDataSource>(RemoteDataSourceImpl(
-    dio: locator.get(instanceName: 'ocr'),
-    livenessDio: locator.get(instanceName: 'livenesss'),
+    dio: locator.get(),
   ));
 
   locator.registerSingleton<OcrRepository>(
@@ -21,8 +17,10 @@ Future<void> injectDependencies() async {
   locator.registerSingleton<LivenesRepository>(
       LivenesRepositoryImpl(remoteDataSource: locator.get()));
 
-  locator.registerFactory<OcrProcessBloc>(
-      () => OcrProcessBloc(ocrRepository: locator.get()));
+  locator.registerFactory<OcrProcessBloc>(() => OcrProcessBloc(
+        ocrRepository: locator.get(),
+        deviceInfoPlugin: locator.get(),
+      ));
 
   locator.registerFactory(() => IdScanningBloc());
 
@@ -31,13 +29,13 @@ Future<void> injectDependencies() async {
   locator.registerFactory(
       () => LivenessCheckBloc(livenesRepository: locator.get()));
 
-  locator.registerSingletonAsync<CameraDescription>(() async {
-    // Obtain a list of the available cameras on the device.
-    final cameras = await availableCameras();
+  // locator.registerSingletonAsync<CameraDescription>(() async {
+  //   // Obtain a list of the available cameras on the device.
+  //   final cameras = await availableCameras();
 
-    // Get a specific camera from the list of available cameras.
-    final firstCamera = cameras.first;
+  //   // Get a specific camera from the list of available cameras.
+  //   final firstCamera = cameras.first;
 
-    return firstCamera;
-  });
+  //   return firstCamera;
+  // });
 }

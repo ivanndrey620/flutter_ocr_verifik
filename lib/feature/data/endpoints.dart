@@ -1,23 +1,16 @@
 class Endpoints {
   Endpoints._();
 
-  static const String ocrApiKey = 'K86630402888957';
-  static const String ocrBaseUrl = 'https://api.ocr.space';
-
-  static const String livenessApiKey = '2616080721e145abb63c32c219167a10';
-  static const String livenessBaseUrl = 'https://api.luxand.cloud';
+  static const String baseUrl = 'https://demo.verifik.co/v2';
 
   static const Duration receiveTimeout = Duration(milliseconds: 20000);
 
   static const Duration connectionTimeout = Duration(milliseconds: 20000);
 
-  static const Map<String, dynamic> ocrHeaders = {
-    'apikey': ocrApiKey,
-    'Content-Type': 'multipart/form-data'
-  };
-
-  static const Map<String, dynamic> livenessHeaders = {
-    'token': livenessApiKey,
-    'Content-Type': 'multipart/form-data'
+  static const Map<String, dynamic> headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json, text/plain, */*',
+    'Authorization':
+        'Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZWFkSWQiOiI2NWEzMWRlMWZjYWRhM2Q0MjQxOWI4ZGYiLCJzZXNzaW9uc0xpbWl0IjoxMDAsInBob25lIjoiNDg4MTAwNzgiLCJpYXQiOjE3MDUxODg4MzN9.INh53brFBDSYtL5hDS5asUqhCOS7R-n6H4gpA-bOHXY',
   };
 }

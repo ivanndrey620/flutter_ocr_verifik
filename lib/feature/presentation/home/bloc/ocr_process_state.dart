@@ -6,8 +6,10 @@ class OcrProcessState with _$OcrProcessState {
 
   const factory OcrProcessState.loading() = _Loading;
 
-  const factory OcrProcessState.loaded({required ScannedText scannedText}) =
-      _Loaded;
+  const factory OcrProcessState.loaded({
+    required OcrScanningModel ocrScanningModel,
+    required WebBrowserInfo webBrowserInfo,
+  }) = _Loaded;
 
   const factory OcrProcessState.error({required String error}) = _Error;
 }

@@ -20,7 +20,9 @@ mixin _$OcrProcessState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
+    required TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)
+        loaded,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +30,9 @@ mixin _$OcrProcessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
+    TResult? Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +40,9 @@ mixin _$OcrProcessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
+    TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +132,9 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
+    required TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)
+        loaded,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -137,7 +145,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
+    TResult? Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -148,7 +158,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
+    TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +252,9 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
+    required TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)
+        loaded,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -251,7 +265,9 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
+    TResult? Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -262,7 +278,9 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
+    TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +338,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ScannedText scannedText});
+  $Res call({OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo});
 }
 
 /// @nodoc
@@ -334,13 +352,18 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? scannedText = null,
+    Object? ocrScanningModel = null,
+    Object? webBrowserInfo = null,
   }) {
     return _then(_$LoadedImpl(
-      scannedText: null == scannedText
-          ? _value.scannedText
-          : scannedText // ignore: cast_nullable_to_non_nullable
-              as ScannedText,
+      ocrScanningModel: null == ocrScanningModel
+          ? _value.ocrScanningModel
+          : ocrScanningModel // ignore: cast_nullable_to_non_nullable
+              as OcrScanningModel,
+      webBrowserInfo: null == webBrowserInfo
+          ? _value.webBrowserInfo
+          : webBrowserInfo // ignore: cast_nullable_to_non_nullable
+              as WebBrowserInfo,
     ));
   }
 }
@@ -348,14 +371,17 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl({required this.scannedText});
+  const _$LoadedImpl(
+      {required this.ocrScanningModel, required this.webBrowserInfo});
 
   @override
-  final ScannedText scannedText;
+  final OcrScanningModel ocrScanningModel;
+  @override
+  final WebBrowserInfo webBrowserInfo;
 
   @override
   String toString() {
-    return 'OcrProcessState.loaded(scannedText: $scannedText)';
+    return 'OcrProcessState.loaded(ocrScanningModel: $ocrScanningModel, webBrowserInfo: $webBrowserInfo)';
   }
 
   @override
@@ -363,12 +389,15 @@ class _$LoadedImpl implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            (identical(other.scannedText, scannedText) ||
-                other.scannedText == scannedText));
+            (identical(other.ocrScanningModel, ocrScanningModel) ||
+                other.ocrScanningModel == ocrScanningModel) &&
+            (identical(other.webBrowserInfo, webBrowserInfo) ||
+                other.webBrowserInfo == webBrowserInfo));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, scannedText);
+  int get hashCode =>
+      Object.hash(runtimeType, ocrScanningModel, webBrowserInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -381,10 +410,12 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
+    required TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)
+        loaded,
     required TResult Function(String error) error,
   }) {
-    return loaded(scannedText);
+    return loaded(ocrScanningModel, webBrowserInfo);
   }
 
   @override
@@ -392,10 +423,12 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
+    TResult? Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult? Function(String error)? error,
   }) {
-    return loaded?.call(scannedText);
+    return loaded?.call(ocrScanningModel, webBrowserInfo);
   }
 
   @override
@@ -403,12 +436,14 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
+    TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(scannedText);
+      return loaded(ocrScanningModel, webBrowserInfo);
     }
     return orElse();
   }
@@ -452,10 +487,12 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements OcrProcessState {
-  const factory _Loaded({required final ScannedText scannedText}) =
-      _$LoadedImpl;
+  const factory _Loaded(
+      {required final OcrScanningModel ocrScanningModel,
+      required final WebBrowserInfo webBrowserInfo}) = _$LoadedImpl;
 
-  ScannedText get scannedText;
+  OcrScanningModel get ocrScanningModel;
+  WebBrowserInfo get webBrowserInfo;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -527,7 +564,9 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ScannedText scannedText) loaded,
+    required TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)
+        loaded,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -538,7 +577,9 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ScannedText scannedText)? loaded,
+    TResult? Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -549,7 +590,9 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ScannedText scannedText)? loaded,
+    TResult Function(
+            OcrScanningModel ocrScanningModel, WebBrowserInfo webBrowserInfo)?
+        loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

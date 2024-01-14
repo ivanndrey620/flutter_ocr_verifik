@@ -1,5 +1,3 @@
-import 'package:flutter_ocr_verifik/feature/presentation/widgets/general_information_widget.dart';
-import 'package:flutter_ocr_verifik/feature/presentation/widgets/liveness_and_match_results_widget.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class ResultsScreen extends StatelessWidget {

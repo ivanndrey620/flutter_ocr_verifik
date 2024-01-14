@@ -6,7 +6,8 @@ class OcrRepositoryImpl extends OcrRepository {
   OcrRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<OcrResultModel> getTextFromImage({required DroppedFile droppedFile}) {
+  Future<OcrScanningModel> getTextFromImage(
+      {required DroppedFile droppedFile}) {
     return remoteDataSource.getTextFromImage(droppedFile: droppedFile);
   }
 }
