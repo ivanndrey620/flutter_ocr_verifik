@@ -1,4 +1,5 @@
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
+import 'package:flutter_ocr_verifik/utils/overlay_painter.dart';
 
 class LivenessCheckScreen extends StatefulWidget {
   const LivenessCheckScreen({
@@ -48,32 +49,25 @@ class _LivenessCheckScreenState extends State<LivenessCheckScreen> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           // If the Future is complete, display the preview.
+
           return Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
+            child: Stack(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: SizedBox(
-                    height: size.height / 1.5,
-                    child: CameraPreview(
-                      _controller,
-                      child: Center(
-                        child: Container(
-                          width: size.width / 4,
-                          height: size.height / 1.5,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.red,
-                              width: 3.0,
-                            ),
-                            borderRadius: const BorderRadius.all(
-                              Radius.elliptical(200, 300),
-                            ),
-                            color: Colors.transparent,
-                          ),
-                        ),
-                      ),
+                SizedBox(
+                  width: size.width / 2,
+                  height: size.height / 1.5,
+                  child: CameraPreview(_controller),
+                ),
+                Positioned(
+                  top: 0.0,
+                  right: 0.0,
+                  bottom: 0,
+                  left: 0.0,
+                  child: CustomPaint(
+                    painter: OverlayPainter(
+                      screenWidth: size.width / 2,
+                      screenHeight: size.height / 1.5,
                     ),
                   ),
                 ),

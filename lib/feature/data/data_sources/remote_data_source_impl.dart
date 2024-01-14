@@ -42,8 +42,6 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         },
       );
 
-      print('response data is ${response.data}');
-
       final result = response.data['data']['result'];
 
       return FaceRecognitionLivenessModel.fromJson(result);
@@ -64,9 +62,9 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       String probeImage = base64Encode(droppedFile.byteList);
 
       final map = {
-        'search_mode': 'FAST',
-        'gallery': ['"$galleryImage"'],
-        'probe': ['"$probeImage"'],
+        'search_mode': 'ACCURATE',
+        'gallery': [galleryImage],
+        'probe': [probeImage],
       };
 
       final response = await dio.post(
