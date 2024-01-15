@@ -86,6 +86,22 @@ class StringConstants {
   static const String livenessCheck = 'Liveness Check';
 
   static const String results = 'Results';
+
+  static const String cancelApiError = 'Cancel Api Error';
+
+  static const String connectionTimeout = 'Connection Timeout';
+
+  static const String receiveTimeout = 'Receive Timeout';
+
+  static const String badResponse = 'Bad Response';
+
+  static const String socketException = 'Socket Exception';
+
+  static const String noInternet = 'No internet';
+
+  static const String unexpected = 'Unexpected';
+
+  static const String defaultError = 'Default error';
 }
 
 class AssetsConstants {

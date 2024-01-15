@@ -1,3 +1,4 @@
+import 'package:flutter_ocr_verifik/feature/data/api_routes.dart';
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -14,7 +15,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       String base64Image = base64Encode(droppedFile.byteList);
 
       final response = await dio.post(
-        '/ocr/scan-demo',
+        ApiRoutes.ocrDocumentScanning,
         data: {'image': base64Image},
       );
 
@@ -22,7 +23,8 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
       return OcrScanningModel.fromJson(data);
     } on DioException catch (e) {
-      throw ('Error is $e');
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      throw errorMessage;
     }
   }
 
@@ -35,7 +37,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       String base64Image = base64Encode(byteList);
 
       final response = await dio.post(
-        '/face-recognition/liveness/demo',
+        ApiRoutes.faceRecognitionLiveness,
         data: {
           'os': 'DESKTOP',
           'image': base64Image,
@@ -46,7 +48,8 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
       return FaceRecognitionLivenessModel.fromJson(result);
     } on DioException catch (e) {
-      throw ('Error with face recognition - $e');
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      throw errorMessage;
     }
   }
 
@@ -68,7 +71,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       };
 
       final response = await dio.post(
-        '/face-recognition/compare/demo',
+        ApiRoutes.compareFaces,
         data: map,
       );
 
@@ -76,7 +79,8 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
       return CompareFacesResult.fromJson(data);
     } on DioException catch (e) {
-      throw ('Error compare faces - ${e.message}');
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      throw errorMessage;
     }
   }
 }
