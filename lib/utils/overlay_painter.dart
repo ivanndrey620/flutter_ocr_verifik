@@ -8,11 +8,13 @@ class OverlayPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final radius = screenWidth * 0.35;
+    final radius = screenWidth * 0.45;
+
     const strokeWidth = 2.0;
+
     final circlePath = Path()
       ..addOval(Rect.fromCircle(
-        center: Offset(screenWidth / 2, screenHeight / 2.5),
+        center: Offset(screenWidth / 2, screenHeight / 2),
         radius: radius,
       ));
 
@@ -41,10 +43,11 @@ class OverlayPainter extends CustomPainter {
       ..strokeWidth = strokeWidth;
 
     canvas.drawPath(overlayPath, paint);
+
     canvas.drawCircle(
       Offset(
         screenWidth / 2,
-        screenHeight / 2.5,
+        screenHeight / 2,
       ),
       radius,
       borderPaint,

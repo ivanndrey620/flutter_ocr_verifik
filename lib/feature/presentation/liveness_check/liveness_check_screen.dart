@@ -1,5 +1,4 @@
 import 'package:flutter_ocr_verifik/utils/export_files.dart';
-import 'package:flutter_ocr_verifik/utils/overlay_painter.dart';
 
 class LivenessCheckScreen extends StatefulWidget {
   const LivenessCheckScreen({
@@ -55,7 +54,7 @@ class _LivenessCheckScreenState extends State<LivenessCheckScreen> {
             child: Stack(
               children: [
                 SizedBox(
-                  width: size.width / 2,
+                  width: size.width / 2.5,
                   height: size.height / 1.5,
                   child: CameraPreview(_controller),
                 ),
@@ -66,7 +65,7 @@ class _LivenessCheckScreenState extends State<LivenessCheckScreen> {
                   left: 0.0,
                   child: CustomPaint(
                     painter: OverlayPainter(
-                      screenWidth: size.width / 2,
+                      screenWidth: size.width / 2.5,
                       screenHeight: size.height / 1.5,
                     ),
                   ),

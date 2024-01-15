@@ -56,3 +56,5 @@ export 'package:flutter_ocr_verifik/feature/presentation/widgets/custom_ocr_pro.
 export 'package:flutter_ocr_verifik/feature/data/repository/repository.dart';
 export 'package:flutter_ocr_verifik/feature/data/repository/repository_impl.dart';
 export 'package:flutter_ocr_verifik/feature/domain/compare_faces_result.dart';
+export 'package:flutter_ocr_verifik/feature/presentation/kyc_process/kyc_process_screen.dart';
+export 'package:flutter_ocr_verifik/utils/overlay_painter.dart';
