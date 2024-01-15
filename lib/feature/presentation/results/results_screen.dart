@@ -28,7 +28,7 @@ class ResultsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CustomTitle(title: 'Selfie'),
+              const CustomTitle(title: StringConstants.selfie),
               const SizedBox(height: 10),
               SizedBox(
                 width: 300,
@@ -70,13 +70,13 @@ class ResultsScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             LivenessScoreChart(
-                              title: 'Liveness score',
+                              title: StringConstants.livenessScore,
                               score: faceRecognitionResult
                                   .livenessScoreWithPercentage,
                               roundedScore: faceRecognitionResult.roundedScore,
                             ),
                             LivenessScoreChart(
-                              title: 'Match Score',
+                              title: StringConstants.matchScore,
                               score: compareFacesResult.scoreWithPercentage,
                               roundedScore: compareFacesResult.roundedScore,
                             ),
@@ -104,7 +104,7 @@ class ResultsScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   Center(
                     child: CustomButton(
-                      content: 'Restart demo',
+                      content: StringConstants.reStartDemo,
                       onPressed: () =>
                           context.read<AppBloc>().add(OnRestartEvent()),
                     ),

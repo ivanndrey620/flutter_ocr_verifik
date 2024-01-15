@@ -19,10 +19,10 @@ class CustomOcrPro extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomTitle(title: 'Scan Zero - Document extraction'),
+        const CustomTitle(title: StringConstants.scanZero),
         const SizedBox(height: 20),
         CustomTitleAndContentWidget(
-          title: 'DocumentType',
+          title: StringConstants.documentType,
           content: ocrDocumentType.documentType,
         ),
         pro == null

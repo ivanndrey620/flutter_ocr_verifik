@@ -17,10 +17,10 @@ class CustomOcrPrompt extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomTitle(title: 'Scan Prompt - Document extraction'),
+        const CustomTitle(title: StringConstants.scanPrompt),
         const SizedBox(height: 20),
         CustomTitleAndContentWidget(
-          title: 'DocumentType',
+          title: StringConstants.documentType,
           content: ocrDocumentType.documentType,
         ),
         prompt == null

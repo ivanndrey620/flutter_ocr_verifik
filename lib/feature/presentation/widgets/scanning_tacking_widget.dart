@@ -25,7 +25,7 @@ class ScanningTrackingWidget extends StatelessWidget {
           children: [
             Expanded(
               child: CustomStep(
-                content: 'ID Scanning',
+                content: StringConstants.idScanning,
                 id: id++,
                 color: kycEnum == KycEnum.idScanning
                     ? Colors.indigo
@@ -34,7 +34,7 @@ class ScanningTrackingWidget extends StatelessWidget {
             ),
             Expanded(
               child: CustomStep(
-                content: 'Document Details',
+                content: StringConstants.documentDetails,
                 id: id++,
                 color: kycEnum == KycEnum.documentDetails
                     ? Colors.indigo
@@ -43,7 +43,7 @@ class ScanningTrackingWidget extends StatelessWidget {
             ),
             Expanded(
               child: CustomStep(
-                content: 'Liveness check',
+                content: StringConstants.livenessCheck,
                 id: id++,
                 color: kycEnum == KycEnum.livenessCheck
                     ? Colors.indigo
@@ -52,7 +52,7 @@ class ScanningTrackingWidget extends StatelessWidget {
             ),
             Expanded(
               child: CustomStep(
-                content: 'Results',
+                content: StringConstants.results,
                 id: id++,
                 color: kycEnum == KycEnum.results
                     ? Colors.indigo

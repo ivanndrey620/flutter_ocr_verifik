@@ -60,6 +60,32 @@ class StringConstants {
   static const String gender = 'Gender';
 
   static const String scanAgain = 'Scan again';
+
+  static const String goNext = 'Continue';
+
+  static const String selfie = 'Selfie';
+
+  static const String livenessScore = 'Liveness score';
+
+  static const String matchScore = 'Match Score';
+
+  static const String reStartDemo = 'Restart demo';
+
+  static const String scanZero = 'Scan Zero - Document extraction';
+
+  static const String livenessAndMatch = 'Liveness & Match results';
+
+  static const String livenessPassed = 'Liveness passed';
+
+  static const String minimumLivenessScore = 'Minimum liveness score';
+
+  static const String idScanning = 'ID Scanning';
+
+  static const String documentDetails = 'Document Details';
+
+  static const String livenessCheck = 'Liveness Check';
+
+  static const String results = 'Results';
 }
 
 class AssetsConstants {

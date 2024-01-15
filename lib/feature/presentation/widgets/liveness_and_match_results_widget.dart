@@ -15,22 +15,22 @@ class LivenessAndMatchResultsWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomTitle(title: 'Liveness & Match results'),
+        const CustomTitle(title: StringConstants.livenessAndMatch),
         const SizedBox(height: 20),
         CustomTitleAndContentWidget(
-          title: 'Liveness score',
+          title: StringConstants.livenessScore,
           content: faceRecognitionLivenessModel.livenessScoreWithPercentage,
         ),
         CustomTitleAndContentWidget(
-          title: 'Liveness passed',
+          title: StringConstants.livenessPassed,
           content: '${faceRecognitionLivenessModel.passed}',
         ),
         CustomTitleAndContentWidget(
-          title: 'Minimum liveness score',
+          title: StringConstants.minimumLivenessScore,
           content: '${faceRecognitionLivenessModel.roundedMinScore}',
         ),
         CustomTitleAndContentWidget(
-          title: 'Match score',
+          title: StringConstants.matchScore,
           content: '${compareFacesResult.roundedScore}',
         ),
         //

@@ -62,7 +62,18 @@ class DocumentDetailsScreen extends StatelessWidget {
                     ),
                   );
                 },
-                error: (error) => Text('Error $error'),
+                error: (error) => Column(
+                  children: [
+                    Text('Error $error'),
+                    const SizedBox(height: 20),
+                    CustomButton(
+                      backgroundColor: Colors.white,
+                      content: StringConstants.scanAgain,
+                      onPressed: () =>
+                          context.read<AppBloc>().add(OnRestartEvent()),
+                    ),
+                  ],
+                ),
               ),
             );
           },
@@ -89,7 +100,7 @@ class _Buttons extends StatelessWidget {
         const SizedBox(width: 20),
         Expanded(
           child: CustomButton(
-            content: 'Continue',
+            content: StringConstants.goNext,
             onPressed: () =>
                 context.read<AppBloc>().add(OnAppLivenessCheckEvent()),
           ),

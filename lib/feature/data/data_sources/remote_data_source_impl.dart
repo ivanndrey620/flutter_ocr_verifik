@@ -62,7 +62,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       String probeImage = base64Encode(droppedFile.byteList);
 
       final map = {
-        'search_mode': 'ACCURATE',
+        'search_mode': 'FAST',
         'gallery': [galleryImage],
         'probe': [probeImage],
       };
