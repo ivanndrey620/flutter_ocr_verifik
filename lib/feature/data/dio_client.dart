@@ -5,5 +5,6 @@ abstract class DioClient {
     ..options.baseUrl = Endpoints.baseUrl
     ..options.headers = Endpoints.headers
     ..options.connectTimeout = Endpoints.connectionTimeout
-    ..options.receiveTimeout = Endpoints.receiveTimeout;
+    ..options.receiveTimeout = Endpoints.receiveTimeout
+    ..interceptors.add(DioInterceptor());
 }
